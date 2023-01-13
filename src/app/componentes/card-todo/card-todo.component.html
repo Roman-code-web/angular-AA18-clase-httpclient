@@ -1,0 +1,38 @@
+<!---------card todo---->
+<div class="card">
+    <h3 class="card-title text-center py-3 ">Lista Todos</h3>
+    <div class="card-body">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item" *ngFor="let todos of userTodo, index as i">
+            <h2 class="accordion-header border border-primary" id="flush-headingOne">
+                <!-------titulo----->
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" attr.data-bs-target="{{ '#' + todos.id}}" aria-expanded="false" attr.aria-controls="{{todos.id}}">
+                    {{i+1}} . {{todos.title}}
+                </button>
+            </h2>
+            <div id="{{todos.id}}" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <!-------tabla----->
+                    <table class="table">
+                        <thead class="text-center">
+                          <tr>
+                            <th scope="col">UserID</th>
+                            <th scope="col">ID TODO</th>
+                            <th scope="col">COMPLETED</th>
+                          </tr>
+                        </thead>
+                        <tbody class="text-center">
+                          <tr >
+                            <th scope="row">{{todos.userId}}</th>
+                            <td>{{todos.id}}</td>
+                            <!-------agrega clase si es true o false y agrega string de completado y no completado----->
+                            <td [ngClass]="{'bg-danger bg-opacity-25': todos.completed==false , 'bg-success bg-opacity-50':todos.completed==true }" >{{todos.completed==true ? 'completado':'No completado'}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>    
+</div>

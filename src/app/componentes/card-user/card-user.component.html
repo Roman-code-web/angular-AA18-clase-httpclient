@@ -1,0 +1,23 @@
+<!--------card de usuario---->
+<div class="card"  *ngFor="let user of userEncontrado" >
+    <div class="card-body">
+        <h3 class="card-title text-center py-3 ">Información de Usuario</h3>
+        <h5 class="card-title text-center fs-2 fw-bold pb-3">{{user.name}}</h5>
+        <div class="container">
+            <p class="card-text fw-bold">ID: </p> 
+            <p>{{user.id}}</p>
+            <p class="card-text fw-bold">nombre usuario: </p> 
+            <p>{{user.username}}</p>
+            <p class="card-text fw-bold">email: </p> 
+            <p>{{user.email}}</p>
+            <p class="card-text fw-bold">telefono: </p> 
+            <p>{{user.phone}}</p>
+        </div>
+        <div class="container d-flex justify-content-center flex-wrap gap-3 py-2">
+            <a routerLink="/"  class="btn rounded-5 px-5 py-2 fs-5 btn__regresar"><i class="fa-solid fa-circle-chevron-left"></i> Regresar</a>
+           <!---- <button  (click)="MostrarTodos(user.id)" class="btn rounded-5 px-5 py-2 fs-5 btn__ver pulso">Ver lista de todos</button>-->
+           <!-------te envia a /Detalle/1/1-----> 
+           <a [routerLink]="['/detalle/', user.id,user.id]" class="btn rounded-5 px-5 py-2 fs-5 btn__ver pulso">Ver lista de todos</a>
+        </div>
+    </div>
+  </div>

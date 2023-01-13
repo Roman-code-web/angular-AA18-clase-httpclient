@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class DatajsonAPIService {
+  hidden=false;
   //1. variable que obtiene la url
   private urlApiJSON="https://jsonplaceholder.typicode.com/";
 

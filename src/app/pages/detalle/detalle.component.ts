@@ -8,25 +8,9 @@ import { DatajsonAPIService } from 'src/app/servicios/datajson-api.service';
   styleUrls: ['./detalle.component.css']
 })
 export class DetalleComponent implements OnInit {
-  ID!:string;
-  userEncontrado:any=[];
-  userTodo:any=[];
-
-  constructor(private route:ActivatedRoute, private dataJSON: DatajsonAPIService){}
+  constructor( public dataJSON: DatajsonAPIService){}
 
   ngOnInit(): void {
-    this.ID=String(this.route.snapshot.paramMap.get('id'));
-    this.cargarDatos(this.ID);
-  }
-
-  cargarDatos(ID:string){
-    this.dataJSON.getAllRegistrosUser().subscribe((data) => {
-      this.userEncontrado = data.filter((data) => data.id == ID)
-    });
-  }
-  MostrarTodos(ID:string){
-    this.dataJSON.getAllRegistrosTodos().subscribe((data)=>{
-      this.userTodo=data.filter((data)=> data.userId==ID)
-    });
+   this.dataJSON.hidden=false;
   }
 }
