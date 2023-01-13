@@ -11,7 +11,7 @@ export class TablaComponent  implements OnInit {
   constructor(public datajson:DatajsonAPIService){}
 
   ngOnInit(): void {
-    this.datajson.getAllRegistros().subscribe(data=> this.listaRegistros=data);
+    this.datajson.getAllRegistrosUser().subscribe(data=> this.listaRegistros=data);
     //this.datajson.getAllRegistros().subscribe( data => console.log(data));
   }
 

@@ -6,13 +6,18 @@ import {Observable} from 'rxjs';
 })
 export class DatajsonAPIService {
   //1. variable que obtiene la url
-  private urlApiJSON="https://jsonplaceholder.typicode.com/todos";
+  private urlApiJSON="https://jsonplaceholder.typicode.com/";
 
   //2.llamamos a httpclient
   constructor(private http:HttpClient) { }
 
-  //3.funcion que obtiene los registros
-  getAllRegistros():Observable<string[]>{
-    return this.http.get<string[]>(this.urlApiJSON);
+  //3.funcion que obtiene los registros de user
+  getAllRegistrosUser():Observable<any[]>{
+    return this.http.get<any[]>(this.urlApiJSON +'users');
   }
+  //4. funcion que obtiene los to do 
+  getAllRegistrosTodos():Observable<any[]>{
+    return this.http.get<any[]>(this.urlApiJSON + 'todos');
+  }
+
 }
