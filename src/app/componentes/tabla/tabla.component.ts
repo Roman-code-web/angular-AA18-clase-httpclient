@@ -7,7 +7,7 @@ import { DatajsonAPIService } from 'src/app/servicios/datajson-api.service';
   styleUrls: ['./tabla.component.css']
 })
 export class TablaComponent  implements OnInit {
-  listaRegistros!:string[];
+  listaRegistros:any = [];
   constructor(public datajson:DatajsonAPIService){}
 
   ngOnInit(): void {
